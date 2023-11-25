@@ -4,6 +4,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FB6E1968-CE5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cruzer.Domain", "Cruzer.Domain\Cruzer.Domain.csproj", "{3DB0ACC8-607F-4A1F-ADFB-A47788F620E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cruzer.Tests", "Cruzer.Tests\Cruzer.Tests.csproj", "{DE94189A-A454-4C99-BCA0-0EEC4A8E3F7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,11 +13,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3DB0ACC8-607F-4A1F-ADFB-A47788F620E6} = {FB6E1968-CE51-4723-9918-6949A80AF141}
+		{DE94189A-A454-4C99-BCA0-0EEC4A8E3F7E} = {FB6E1968-CE51-4723-9918-6949A80AF141}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3DB0ACC8-607F-4A1F-ADFB-A47788F620E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3DB0ACC8-607F-4A1F-ADFB-A47788F620E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DB0ACC8-607F-4A1F-ADFB-A47788F620E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DB0ACC8-607F-4A1F-ADFB-A47788F620E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE94189A-A454-4C99-BCA0-0EEC4A8E3F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE94189A-A454-4C99-BCA0-0EEC4A8E3F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE94189A-A454-4C99-BCA0-0EEC4A8E3F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE94189A-A454-4C99-BCA0-0EEC4A8E3F7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -19,11 +19,11 @@ namespace Cruzer.Domain.Models.Entitites
 
             return $@"Repair Quote #{Id}, valid through {ExpiryDate:D} 
                     Prepared for {customer.FirstName} {customer.LastName}'s' {vehicle.Year} {vehicle.Make} {vehicle.Model}.
-                ---
-                Parts {PartTotal}
-                Labor {LaborTotal}
-                ---
-                Total: {PartTotal + LaborTotal:F}";
+                    ---
+                    Parts {PartTotal}
+                    Labor {LaborTotal}
+                    ---
+                    Total: {PartTotal + LaborTotal:F}";
         }
     }
 }

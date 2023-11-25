@@ -3,7 +3,7 @@ using Cruzer.Domain.Models.Entitites;
 
 namespace Cruzer.Domain.Services
 {
-    internal interface IQuoteService
+    public interface IQuoteService
     {
         RepairShopContext Context { get; init; }
         Quote? GenerateQuote(int repairOrderId);

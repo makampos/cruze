@@ -3,14 +3,16 @@ using Cruzer.Domain.Models.Entitites;
 
 namespace Cruzer.Domain.Services;
 
-internal class QuoteService : IQuoteService
+public class QuoteService : IQuoteService
 {
     private readonly decimal laborRate;
+    private readonly WarrantyService warrantyService;
     
-    public QuoteService(RepairShopContext context, decimal laborRate)
+    public QuoteService(RepairShopContext context, decimal laborRate, WarrantyService warrantyService)
     {
         Context = context;
         this.laborRate = laborRate;
+        this.warrantyService = warrantyService;
     }
 
     public RepairShopContext Context { get; init; }
@@ -24,14 +26,27 @@ internal class QuoteService : IQuoteService
             return null;
         }
         
-        var quote = new Quote
+        // var quote = new Quote
+        // {
+        //     RepairOrder = repairOrder,
+        //     PartTotal = repairOrder.Repairs.Sum(x => x.Parts.Sum(y => y.Price)),
+        //     LaborTotal = repairOrder.Repairs.Sum(x => x.Labor) * laborRate,
+        //     ExpiryDate = DateTime.Today.AddDays(30)
+        // };
+
+        var quote = new Quote()
         {
             RepairOrder = repairOrder,
-            PartTotal = repairOrder.Repairs.Sum(x => x.Parts.Sum(y => y.Price)),
-            LaborTotal = repairOrder.Repairs.Sum(x => x.Labor) * laborRate,
+            PartTotal = repairOrder.Repairs.Sum(x =>
+            warrantyService.IsCovered(repairOrder.Vehicle, x) 
+                    ? 0 
+                    : x.Parts.Sum(y => y.Price)),
+            LaborTotal = repairOrder.Repairs.Sum(x => warrantyService.IsCovered(repairOrder.Vehicle, x) 
+                     ? 0 
+                     : x.Labor) * laborRate,
             ExpiryDate = DateTime.Today.AddDays(30)
         };
-
+        
         Context.Quotes.Add(quote);
         Context.SaveChanges();
 

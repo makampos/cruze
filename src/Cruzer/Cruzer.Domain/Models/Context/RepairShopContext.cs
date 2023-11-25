@@ -1,10 +1,9 @@
 using Cruzer.Domain.Models.Entitites;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 namespace Cruzer.Domain.Models.Context;
 
-internal class RepairShopContext : DbContext
+public class RepairShopContext : DbContext
 {
     public DbSet<Customer> Customers { get; set; }
     
