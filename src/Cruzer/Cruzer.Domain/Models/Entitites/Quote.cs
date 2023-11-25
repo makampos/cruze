@@ -11,5 +11,19 @@ namespace Cruzer.Domain.Models.Entitites
         public decimal LaborTotal { get; set; }
     
         public DateTime ExpiryDate { get; set; }
+
+        public override string ToString()
+        {
+            var vehicle = RepairOrder.Vehicle;
+            var customer = vehicle.Customer;
+
+            return $@"Repair Quote #{Id}, valid through {ExpiryDate:D} 
+                    Prepared for {customer.FirstName} {customer.LastName}'s' {vehicle.Year} {vehicle.Make} {vehicle.Model}.
+                ---
+                Parts {PartTotal}
+                Labor {LaborTotal}
+                ---
+                Total: {PartTotal + LaborTotal:F}";
+        }
     }
 }
