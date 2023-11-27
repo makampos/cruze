@@ -19,7 +19,7 @@ namespace Cruzer.Domain.Services
 
             return repair.Category switch
             {
-                "Engine" or "Trans" or "Emissions" or " Infotainment" => true, _ => false,
+                "Engine" or "Trans" or "Emissions" or "Infotainment" => true, _ => false,
             };
         }
     }

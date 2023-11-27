@@ -4,15 +4,16 @@ using NUnit.Framework;
 
 namespace Cruzer.Tests
 {
-    public class When_Quoting_a_head_gasket_out_of_warranty : Given_a_QuoteService
+    [TestFixture]
+    public class When_Quoting_a_radio_out_of_warranty : Given_a_QuoteService
     {
         private Quote? Quote { get; set; }
-
+        
         [SetUp]
-        public void setup()
+        public override void Setup()
         {
             base.Setup();
-
+            
             RepairOrder = new RepairOrder
             {
                 Vehicle = new Vehicle
@@ -26,7 +27,7 @@ namespace Cruzer.Tests
                     Year = DateTime.Now.Year,
                     Make = "Ford",
                     Model = "Focus",
-                    Odometer = 100001
+                    Odometer = 100008
                 },
                 Repairs = { Context.Repairs.Include(x => x.Parts).Single(x => x.Code == "NG001") }
             };
@@ -46,7 +47,7 @@ namespace Cruzer.Tests
         [Test]
         public void Then_the_Labor_total_is_correct()
         {
-            Assert.AreEqual(150, Quote!.LaborTotal);
+            Assert.AreEqual(150M, Quote!.LaborTotal);
         }
 
         [Test]
